@@ -1,19 +1,11 @@
-# Personal card site
+# khamuliak-automation.uk
 
-A one-page personal business card built with Next.js – animated shader
-background, profile card with socials and ventures, an "Ask AI" button that
-pre-fills a question about you in ChatGPT/Perplexity/Google, plus generated
-SEO files (`robots.txt`, `sitemap.xml`, `llms.txt`, Person JSON-LD) and a
-downloadable vCard at `/contact.vcf`.
+Personal card site of Ihor Khamuliak: AI automation for small businesses.
 
-All personal content lives in a single file: `site.config.ts`.
+- Next.js 16 + Tailwind 4, WebGL shader background (three.js)
+- Everything personal lives in `site.config.ts`
+- Case studies at `/portfolio` (static page in `public/portfolio/`)
+- `robots.txt`, `sitemap.xml`, `llms.txt` and `/contact.vcf` are generated from the config
+- Deployed on Vercel, domain `khamuliak-automation.uk`
 
-## Quick start
-
-```bash
-npm install
-npm run dev
-```
-
-Then follow `SETUP.md` to replace the placeholder name, links, and images
-with your own.
+Based on a card-site template by a friend. Thanks!

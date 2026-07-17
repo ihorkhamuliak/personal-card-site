@@ -80,11 +80,6 @@ export const siteConfig: SiteConfig = {
       url: "https://khamuliak-automation.uk/portfolio",
       description: "Кейси: AI-боти, автозвіти, автопостинг",
     },
-    {
-      name: "Шаблон AI-асистента",
-      url: "https://github.com/ihorkhamuliak/tg-bot-szablon",
-      description: "Відкритий n8n-шаблон бота для запису клієнтів",
-    },
   ],
   avatar: "/avatar.png",
   ogImage: "/og-image.png",

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { siteConfig } from "@/site.config";
-import { AskAi } from "./ask-ai";
 import "./business-card.css";
 
 export function BusinessCard() {
@@ -42,11 +41,8 @@ export function BusinessCard() {
   return (
     <div className="card-scope">
       <article ref={cardRef} className="card">
-        {/* Banner — radial blue gradient behind the avatar */}
+        {/* Banner — radial gradient behind the avatar */}
         <div className="card__banner" />
-
-        {/* Ask AI — straddles the seam on the right, mirroring the avatar */}
-        <AskAi />
 
         {/* Body — solid dark for legibility */}
         <div className="card__body">

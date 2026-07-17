@@ -5,16 +5,16 @@
 
 .card-scope {
   /* color */
-  --accent: #2d6bff;
-  --accent-soft: #5b8cff;
+  --accent: #10b981;
+  --accent-soft: #34d399;
   --text-hi: #ffffff;
-  --text-mid: #c7d2e6;
-  --text-lo: #8a97b2;
+  --text-mid: #cbdcd4;
+  --text-lo: #8da49a;
   --hairline: rgba(255, 255, 255, 0.1);
 
   /* card */
   --card-w: 392px;
-  --card-bg: #080b16; /* solid body */
+  --card-bg: #07110d; /* solid body */
   --banner-h: 184px; /* banner height == seam offset (shared with the Ask AI button) */
   --avatar: 84px;
   --fit: 1;
@@ -42,7 +42,7 @@
   background: transparent; /* banner reveals the shader */
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 0 30px 80px -24px rgba(0, 0, 0, 0.72), 0 2px 10px rgba(0, 0, 0, 0.5),
-    0 20px 55px -26px rgba(45, 107, 255, 0.5); /* blue glow at the card's base */
+    0 20px 55px -26px rgba(16, 185, 129, 0.45); /* emerald glow at the card's base */
   transform-origin: center center;
 
   /* Visible by default; entrance is a pure-CSS animation (no JS gate).
@@ -63,21 +63,21 @@
   }
 }
 
-/* --- Banner: radial gradient anchored at the bottom-left — light electric blue
-   at that corner (behind the avatar), pushing through saturated blues into a
-   deep navy at the top-right. --- */
+/* --- Banner: radial gradient anchored at the bottom-left — light mint at that
+   corner (behind the avatar), pushing through saturated emeralds into a deep
+   green-black at the top-right. --- */
 .card-scope .card__banner {
   position: relative;
   height: var(--banner-h);
   background: radial-gradient(
     135% 130% at 0% 100%,
-    #c4daff 0%,
-    #79a7ff 14%,
-    #3a72f4 31%,
-    #1f50c4 48%,
-    #15387f 64%,
-    #0c2152 80%,
-    #060d24 100%
+    #d8fbe9 0%,
+    #6ee7b7 14%,
+    #10b981 31%,
+    #059669 48%,
+    #046249 64%,
+    #033a2c 80%,
+    #02120d 100%
   );
 }
 /* --- Body (solid) --- */
@@ -89,8 +89,8 @@
   display: flow-root;
   background: var(--card-bg);
   padding: 0 22px 24px;
-  /* small blue glow rising from the bottom edge, behind the content */
-  box-shadow: inset 0 -64px 56px -48px rgba(45, 107, 255, 0.42);
+  /* small emerald glow rising from the bottom edge, behind the content */
+  box-shadow: inset 0 -64px 56px -48px rgba(16, 185, 129, 0.38);
 }
 
 /* --- Avatar straddling the seam --- */
@@ -108,7 +108,7 @@
   width: 100%;
   height: 100%;
   border-radius: 22px;
-  background-color: #0a1a3f;
+  background-color: #06231b;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -173,7 +173,7 @@
   transition: background-color 160ms ease;
 }
 .card-scope .venture:hover {
-  background: rgba(45, 107, 255, 0.08);
+  background: rgba(16, 185, 129, 0.08);
 }
 .card-scope .venture__row {
   display: flex;
@@ -233,7 +233,7 @@
   display: block;
 }
 .card-scope .social:hover {
-  background: rgba(45, 107, 255, 0.14);
+  background: rgba(16, 185, 129, 0.14);
   border-color: var(--accent);
   color: var(--text-hi);
   transform: translateY(-1px);

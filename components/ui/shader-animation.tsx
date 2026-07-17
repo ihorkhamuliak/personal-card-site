@@ -47,12 +47,12 @@ export function ShaderAnimation() {
           }
         }
 
-        // ...then tint them with the Sandra AI palette (deep blue -> electric
-        // blue -> cyan) on black. Overlapping bright cores bloom toward white.
-        vec3 deepBlue = vec3(0.05, 0.15, 0.45);
-        vec3 electric = vec3(0.12, 0.40, 1.00);
-        vec3 cyan     = vec3(0.55, 0.88, 1.00);
-        vec3 color = acc.x * deepBlue + acc.y * electric + acc.z * cyan;
+        // ...then tint them with an emerald palette (deep green -> emerald ->
+        // mint) on black. Overlapping bright cores bloom toward white.
+        vec3 deepGreen = vec3(0.02, 0.22, 0.14);
+        vec3 emerald   = vec3(0.06, 0.73, 0.51);
+        vec3 mint      = vec3(0.55, 1.00, 0.80);
+        vec3 color = acc.x * deepGreen + acc.y * emerald + acc.z * mint;
 
         gl_FragColor = vec4(color, 1.0);
       }
