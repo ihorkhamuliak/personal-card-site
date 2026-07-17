@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кейси | Ігор Хамуляк</title>
+<meta name="description" content="Кейси: AI-асистенти, автозвіти, автопостинг. Системи, які працюють у клієнтів щодня.">
+<meta property="og:title" content="Кейси | Ігор Хамуляк">
+<meta property="og:description" content="AI-боти, автозвіти, автопостинг. Реальні системи, які працюють у клієнтів щодня.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<style>
+  :root {
+    --bg: #0b1120;
+    --bg-card: #131c31;
+    --bg-card-hover: #182440;
+    --text: #e6ebf5;
+    --text-dim: #93a1bc;
+    --accent: #4f8ef7;
+    --accent-soft: rgba(79, 142, 247, 0.12);
+    --border: #223252;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 48px 0; }
+
+  .topnav { padding: 22px 0 0; }
+  .topnav a { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+  .topnav a:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero { padding: 48px 0 56px; }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.15; margin-bottom: 14px; }
+  h1 .accent { color: var(--accent); }
+  .hero p.lead {
+    color: var(--text-dim);
+    font-size: 17px;
+    max-width: 560px;
+    margin-bottom: 28px;
+  }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.15s;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { filter: brightness(1.12); }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  h2 { font-size: 24px; margin-bottom: 6px; }
+  .sub { color: var(--text-dim); margin-bottom: 24px; font-size: 15px; }
+
+  /* Services */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .card .ico { font-size: 22px; margin-bottom: 10px; }
+  .card h3 { font-size: 16px; margin-bottom: 6px; }
+  .card p { color: var(--text-dim); font-size: 14px; }
+
+  /* Cases */
+  .case {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 14px;
+    transition: 0.15s;
+  }
+  .case:hover { background: var(--bg-card-hover); }
+  .case h3 { font-size: 17px; margin-bottom: 8px; }
+  .case p { color: var(--text-dim); font-size: 14.5px; margin-bottom: 12px; }
+  .case .num { color: var(--accent); font-weight: 700; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 12px;
+    color: var(--text-dim);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .case a.gh { color: var(--accent); font-size: 13.5px; text-decoration: none; }
+  .case a.gh:hover { text-decoration: underline; }
+
+  /* Steps */
+  .step { display: flex; gap: 16px; margin-bottom: 20px; }
+  .step .n {
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step h3 { font-size: 15.5px; margin-bottom: 3px; }
+  .step p { color: var(--text-dim); font-size: 14px; }
+
+  /* Contact */
+  .contact { text-align: center; padding: 56px 0 40px; }
+  .contact p { color: var(--text-dim); max-width: 460px; margin: 0 auto 26px; }
+  .links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-top: 26px; }
+  .links a { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+  .links a:hover { color: var(--accent); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <nav class="topnav"><a href="/">← На головну</a></nav>
+
+  <section class="hero">
+    <span class="badge">Автоматизація · AI · Telegram-боти</span>
+    <h1>Ігор Хамуляк.<br>Забираю рутину в <span class="accent">малого бізнесу</span></h1>
+    <p class="lead">Роблю системи, які працюють замість людини: бот відповідає клієнтам, звіти заповнюються самі, контент публікується за розкладом. Все на реальних клієнтах, 24/7.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://t.me/Ihor_0O">Написати в Telegram</a>
+      <a class="btn btn-ghost" href="#cases">Подивитись кейси</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Що я роблю</h2>
+    <p class="sub">Типові задачі, які закриваю</p>
+    <div class="grid">
+      <div class="card">
+        <div class="ico">🤖</div>
+        <h3>AI-асистенти в Telegram</h3>
+        <p>Бот відповідає на питання клієнтів 24/7, записує на послуги, нагадує про візит. Ти не відволікаєшся на однакові питання.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📊</div>
+        <h3>Звіти без рук</h3>
+        <p>Дані з реклами, продажів чи CRM самі збираються в таблицю за розкладом. Нуль ручного copy-paste.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📣</div>
+        <h3>Контент на автопілоті</h3>
+        <p>Канали й соцмережі, які публікують пости самі: розклад, нічний режим, фільтри реклами, щоденні звіти власнику.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔗</div>
+        <h3>Інтеграції під задачу</h3>
+        <p>Зшиваю сервіси, які не дружать між собою: Telegram, Google Sheets, CRM, месенджери, API. n8n, Make, Python.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <h2>Кейси</h2>
+    <p class="sub">Системи, які працюють у клієнтів прямо зараз</p>
+
+    <div class="case">
+      <h3>Новинні Telegram-канали на автопілоті</h3>
+      <p>Два канали клієнта система веде сама: публікує пости цілодобово, тримає темп і нічний режим, не пускає рекламу в стрічку. За гарячий день: <span class="num">31 пост</span> без участі людини. Клієнт лише отримує звіт о <span class="num">21:00</span>.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">n8n</span><span class="tag">Telegram API</span><span class="tag">Docker</span></div>
+    </div>
+
+    <div class="case">
+      <h3>AI-асистент для студії майстер-класів</h3>
+      <p>Студія кераміки і флористики в Познані отримувала однакові питання щодня. Тепер бот відповідає <span class="num">24/7</span>, записує на майстер-класи в таблицю і нагадує про візит. Шаблон відкритий, можна подивитись код.</p>
+      <div class="tags"><span class="tag">n8n</span><span class="tag">Claude API</span><span class="tag">Google Sheets</span></div>
+      <p style="margin: 10px 0 0;"><a class="gh" href="https://github.com/ihorkhamuliak/tg-bot-szablon">→ шаблон на GitHub</a></p>
+    </div>
+
+    <div class="case">
+      <h3>Звіти Meta Ads: 15 хвилин щодня → 0</h3>
+      <p>Клієнт вручну переносив витрати з Ads Manager у Google Таблицю: понад <span class="num">6 годин на місяць</span> на copy-paste. Тепер скрипт робить це сам щоранку о 8:00. Перший прогін відпрацював за <span class="num">28 секунд</span>.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Meta API</span><span class="tag">GitHub Actions</span></div>
+      <p style="margin: 10px 0 0;"><a class="gh" href="https://github.com/ihorkhamuliak/meta-ads-to-sheets">→ код на GitHub</a></p>
+    </div>
+
+    <div class="case">
+      <h3>Власний LinkedIn на автопілоті</h3>
+      <p>AI пише пости з моїх робочих нотаток, надсилає чернетку в Telegram на підтвердження і публікує за розкладом <span class="num">3 рази на тиждень</span>. Я користуюсь тим самим, що продаю.</p>
+      <div class="tags"><span class="tag">n8n</span><span class="tag">Claude API</span><span class="tag">LinkedIn API</span></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>Як працюю</h2>
+    <p class="sub">Просто і без сюрпризів</p>
+    <div class="step">
+      <div class="n">1</div>
+      <div>
+        <h3>Коротка розмова</h3>
+        <p>Розказуєш, де у тебе рутина. Я дивлюсь, що можна автоматизувати, і чесно кажу, якщо автоматизація не окупиться.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div>
+        <h3>Фіксована ціна і строк</h3>
+        <p>Домовляємось до старту: що саме роблю, скільки коштує, коли буде готово. Половина оплати на початку, половина після здачі.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div>
+        <h3>Робоча система + інструкція</h3>
+        <p>Здаю не «прототип», а систему, яка працює щодня. Пояснюю, як нею користуватись. Підтримка і доробки за домовленістю.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Є рутина, яку хочеш віддати роботам?</h2>
+    <p>Напиши, опиши задачу своїми словами. Подивлюсь і скажу чесно: що автоматизується, скільки коштує і чи воно взагалі того варте.</p>
+    <a class="btn btn-primary" href="https://t.me/Ihor_0O">Telegram: @Ihor_0O</a>
+    <div class="links">
+      <a href="https://www.instagram.com/igorhml_">Instagram</a>
+      <a href="https://www.linkedin.com/in/ihorkhamuliak">LinkedIn</a>
+      <a href="https://github.com/ihorkhamuliak">GitHub</a>
+      <a href="mailto:hamulakigor7@gmail.com">hamulakigor7@gmail.com</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>Ігор Хамуляк · Познань · 2026</footer>
+
+</body>
+</html>

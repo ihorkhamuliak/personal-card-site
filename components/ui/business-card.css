@@ -1,0 +1,280 @@
+/* Business card — X/Twitter-style profile layout.
+   The banner is translucent so the page's WebGL shader shows through it as live
+   cover art; the body is solid dark so text stays crisp. All selectors are
+   scoped under `.card-scope` so the generic class names can't leak. */
+
+.card-scope {
+  /* color */
+  --accent: #2d6bff;
+  --accent-soft: #5b8cff;
+  --text-hi: #ffffff;
+  --text-mid: #c7d2e6;
+  --text-lo: #8a97b2;
+  --hairline: rgba(255, 255, 255, 0.1);
+
+  /* card */
+  --card-w: 392px;
+  --card-bg: #080b16; /* solid body */
+  --banner-h: 184px; /* banner height == seam offset (shared with the Ask AI button) */
+  --avatar: 84px;
+  --fit: 1;
+  --base-scale: 1; /* scaled up on wider screens (see media query) */
+
+  /* type */
+  --font: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  font-family: var(--font);
+  color: var(--text-hi);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.card-scope * {
+  box-sizing: border-box;
+}
+
+/* --- Card shell --- */
+.card-scope .card {
+  position: relative;
+  width: var(--card-w);
+  max-width: calc(100vw - 32px);
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent; /* banner reveals the shader */
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 30px 80px -24px rgba(0, 0, 0, 0.72), 0 2px 10px rgba(0, 0, 0, 0.5),
+    0 20px 55px -26px rgba(45, 107, 255, 0.5); /* blue glow at the card's base */
+  transform-origin: center center;
+
+  /* Visible by default; entrance is a pure-CSS animation (no JS gate).
+     `scale` is an independent transform property so the fit-scale guard can set
+     --fit without clobbering the entrance translate. */
+  opacity: 1;
+  scale: calc(var(--fit) * var(--base-scale));
+  animation: oaCardIn 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes oaCardIn {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* --- Banner: radial gradient anchored at the bottom-left — light electric blue
+   at that corner (behind the avatar), pushing through saturated blues into a
+   deep navy at the top-right. --- */
+.card-scope .card__banner {
+  position: relative;
+  height: var(--banner-h);
+  background: radial-gradient(
+    135% 130% at 0% 100%,
+    #c4daff 0%,
+    #79a7ff 14%,
+    #3a72f4 31%,
+    #1f50c4 48%,
+    #15387f 64%,
+    #0c2152 80%,
+    #060d24 100%
+  );
+}
+/* --- Body (solid) --- */
+.card-scope .card__body {
+  position: relative;
+  z-index: 1;
+  /* establish a block formatting context so the avatar's negative margin lifts
+     it within the body instead of collapsing through and moving the whole body */
+  display: flow-root;
+  background: var(--card-bg);
+  padding: 0 22px 24px;
+  /* small blue glow rising from the bottom edge, behind the content */
+  box-shadow: inset 0 -64px 56px -48px rgba(45, 107, 255, 0.42);
+}
+
+/* --- Avatar straddling the seam --- */
+.card-scope .card__avatar-wrap {
+  position: relative;
+  z-index: 2;
+  width: var(--avatar);
+  height: var(--avatar);
+  /* pull the avatar up by half its height so its vertical center sits exactly
+     on the seam (banner bottom). `* -0.5` — dividing by a negative is invalid. */
+  margin-top: calc(var(--avatar) * -0.5);
+  margin-bottom: 12px;
+}
+.card-scope .avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  background-color: #0a1a3f;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--card-bg);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Identity --- */
+.card-scope .name {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-hi);
+  display: flex;
+  align-items: center;
+}
+.card-scope .verified {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.card-scope .verified svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.card-scope .handle {
+  margin: 3px 0 0;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--text-lo);
+}
+
+/* --- Bio --- */
+.card-scope .bio {
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--text-mid);
+  max-width: 32ch;
+}
+
+/* --- Ventures --- */
+.card-scope .ventures {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.card-scope .venture {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  margin: 0 -8px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+.card-scope .venture:hover {
+  background: rgba(45, 107, 255, 0.08);
+}
+.card-scope .venture__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-scope .venture__name {
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--text-mid);
+  transition: color 160ms ease;
+}
+.card-scope .venture__arrow {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-lo);
+  transition: color 160ms ease, transform 160ms ease;
+}
+.card-scope .venture__desc {
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--text-lo);
+}
+.card-scope .venture:hover .venture__name,
+.card-scope .venture:focus-visible .venture__name {
+  color: var(--accent-soft);
+}
+.card-scope .venture:hover .venture__arrow,
+.card-scope .venture:focus-visible .venture__arrow {
+  color: var(--accent-soft);
+  transform: translate(2px, -2px);
+}
+
+/* --- Social icon-buttons --- */
+.card-scope .socials {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.card-scope .social {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--text-mid);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hairline);
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease,
+    transform 160ms ease, box-shadow 160ms ease;
+}
+.card-scope .social svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.card-scope .social:hover {
+  background: rgba(45, 107, 255, 0.14);
+  border-color: var(--accent);
+  color: var(--text-hi);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -6px var(--accent);
+}
+
+/* --- Focus-visible rings --- */
+.card-scope a:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+.card-scope .venture:focus-visible {
+  outline-offset: 0;
+}
+
+/* --- Phones --- */
+@media (max-width: 420px) {
+  .card-scope {
+    --card-w: 100%;
+    --avatar: 78px;
+  }
+  .card-scope .card {
+    max-width: 360px;
+  }
+  .card-scope .name {
+    font-size: 20px;
+  }
+}
+
+/* --- Larger on wider (desktop) screens --- */
+@media (min-width: 700px) {
+  .card-scope {
+    --base-scale: 1.3;
+  }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .card-scope .card {
+    animation: none;
+    opacity: 1;
+    translate: none;
+  }
+}

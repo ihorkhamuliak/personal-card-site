@@ -1,0 +1,136 @@
+/* "Ask AI" — a white pill straddling the banner/body seam on the right (mirror
+   of the avatar on the left), plus a full-screen popup of model deep-links. */
+
+/* --- Trigger button --- */
+.askai-btn {
+  position: absolute;
+  top: var(--banner-h, 184px); /* the seam */
+  right: 20px;
+  transform: translateY(-50%); /* vertically centered on the seam */
+  z-index: 4; /* above banner/body, below the popup overlay */
+
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #050a18;
+  font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.5);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+.askai-btn:hover {
+  transform: translateY(calc(-50% - 1px)); /* keep centered, lift 1px */
+  box-shadow: 0 8px 22px -6px rgba(45, 107, 255, 0.55);
+}
+.askai-btn:focus-visible {
+  outline: 2px solid #5b8cff;
+  outline-offset: 2px;
+}
+
+/* --- Popup overlay --- */
+.askai-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(5, 10, 24, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: askaiOverlayIn 250ms ease both;
+}
+.askai-overlay--closing {
+  animation: askaiOverlayOut 200ms ease forwards;
+}
+@keyframes askaiOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes askaiOverlayOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* --- Model pills --- */
+.askai-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  /* width hugs the longest label (Perplexity) + padding; all pills match it */
+  width: max-content;
+  max-width: 100%;
+}
+.askai-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border-radius: 9999px; /* full pill */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  color: #ffffff;
+  font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease,
+    box-shadow 160ms ease;
+  /* staggered entrance; `backwards` so the held end-state doesn't block :hover */
+  animation: askaiPillIn 450ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.askai-pill svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  display: block;
+}
+.askai-pill:hover {
+  background: rgba(45, 107, 255, 0.16);
+  border-color: #2d6bff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -8px rgba(45, 107, 255, 0.6);
+}
+.askai-pill:focus-visible {
+  outline: 2px solid #5b8cff;
+  outline-offset: 2px;
+}
+@keyframes askaiPillIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- Reduced motion: show everything instantly, no movement --- */
+@media (prefers-reduced-motion: reduce) {
+  .askai-overlay,
+  .askai-overlay--closing {
+    animation: none;
+  }
+  .askai-pill {
+    animation: none;
+  }
+}
