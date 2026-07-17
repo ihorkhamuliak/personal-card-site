@@ -64,7 +64,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Ihor Khamuliak is an automation developer and IT student based in Poznań, Poland. He builds AI assistants, Telegram bots and business automations with n8n, Python and the Claude API for small businesses in Ukraine and Poland. Coding since age 17: Java, C++, now Python.",
   siteUrl: "https://khamuliak-automation.uk",
-  vercelHost: "",
+  vercelHost: "personal-card-site-one.vercel.app",
   email: "hamulakigor7@gmail.com",
   nationality: "Ukraine",
   socials: {
