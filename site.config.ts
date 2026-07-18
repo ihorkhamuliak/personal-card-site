@@ -83,7 +83,7 @@ export const siteConfig: SiteConfig = {
     {
       name: "Залишити заявку",
       url: "https://khamuliak-automation.uk/start",
-      description: "Опиши задачу, відповім протягом дня",
+      description: "Опишіть задачу, відповім протягом дня",
     },
   ],
   avatar: "/avatar.png",
