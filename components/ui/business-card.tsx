@@ -1,11 +1,28 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/site.config";
 import "./business-card.css";
 
 export function BusinessCard() {
   const cardRef = useRef<HTMLElement>(null);
+  const [lang, setLang] = useState<"uk" | "en">("uk");
+
+  useEffect(() => {
+    const fromQuery = new URLSearchParams(window.location.search).get("lang");
+    const saved = fromQuery || window.localStorage.getItem("lang");
+    if (saved === "en") setLang("en");
+  }, []);
+
+  const switchLang = (next: "uk" | "en") => {
+    setLang(next);
+    window.localStorage.setItem("lang", next);
+  };
+
+  const texts =
+    lang === "en"
+      ? siteConfig.translations.en
+      : { bio: siteConfig.bio, ventures: siteConfig.ventures };
 
   useEffect(() => {
     const card = cardRef.current;
@@ -44,6 +61,24 @@ export function BusinessCard() {
         {/* Banner — radial gradient behind the avatar */}
         <div className="card__banner" />
 
+        {/* Language toggle — top-right, straddling the banner */}
+        <div className="lang-toggle" role="group" aria-label="Language">
+          <button
+            type="button"
+            className={lang === "uk" ? "on" : ""}
+            onClick={() => switchLang("uk")}
+          >
+            UA
+          </button>
+          <button
+            type="button"
+            className={lang === "en" ? "on" : ""}
+            onClick={() => switchLang("en")}
+          >
+            EN
+          </button>
+        </div>
+
         {/* Body — solid dark for legibility */}
         <div className="card__body">
           <div className="card__avatar-wrap">
@@ -72,11 +107,11 @@ export function BusinessCard() {
           </h1>
           <p className="handle">@{siteConfig.handle}</p>
 
-          <p className="bio">{siteConfig.bio}</p>
+          <p className="bio">{texts.bio}</p>
 
-          {siteConfig.ventures.length > 0 && (
+          {texts.ventures.length > 0 && (
             <nav className="ventures" aria-label="Ventures">
-              {siteConfig.ventures.map((venture) => (
+              {texts.ventures.map((venture) => (
                 <a
                   key={venture.name}
                   className="venture"

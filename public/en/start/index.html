@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Заявка | Ігор Хамуляк</title>
-<meta name="description" content="Розкажіть, де у вашому бізнесі рутина. Відповім протягом дня: що можна автоматизувати, скільки коштує і чи воно того варте.">
+<title>Request | Ihor Khamuliak</title>
+<meta name="description" content="Tell me where the routine is in your business. I'll reply within a day: what can be automated, what it costs and whether it's worth it.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/favicon.png">
 <style>
@@ -89,37 +89,37 @@
 <body>
 
 <div class="wrap">
-  <nav class="topnav" style="display: flex; justify-content: space-between;"><a href="/">← На головну</a><a href="/en/start">EN</a></nav>
+  <nav class="topnav" style="display: flex; justify-content: space-between;"><a href="/?lang=en">← Home</a><a href="/start">UA</a></nav>
 
-  <h1>Розкажіть, де у вашому бізнесі <span class="accent">рутина</span></h1>
-  <p class="lead">Заповніть форму, відповім протягом дня: що можна автоматизувати, скільки це коштує і чи воно взагалі того варте. Чесно.</p>
+  <h1>Tell me where the <span class="accent">routine</span> is in your business</h1>
+  <p class="lead">Fill in the form and I'll reply within a day: what can be automated, what it costs and whether it's worth it at all. Honestly.</p>
 
   <form id="leadForm">
-    <label>Ваше ім'я <span>(як до вас звертатися)</span>
+    <label>Your name <span>(how should I address you)</span>
       <input type="text" name="name" required maxlength="80" autocomplete="name">
     </label>
-    <label>Чим займається ваш бізнес <span>(ніша, продукт, послуга)</span>
+    <label>What does your business do <span>(niche, product, service)</span>
       <input type="text" name="business" required maxlength="120">
     </label>
-    <label>Що забирає найбільше часу вручну? <span>(опишіть своїми словами, а що з цим робити, підкажу)</span>
+    <label>What eats the most time done by hand? <span>(describe it in your own words, I'll suggest what to do with it)</span>
       <textarea name="task" required maxlength="1500"></textarea>
     </label>
-    <label>Як з вами зв'язатися <span>(Telegram, телефон або пошта)</span>
+    <label>How can I reach you <span>(Telegram, phone or email)</span>
       <input type="text" name="contact" required maxlength="120">
     </label>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
-    <button type="submit" id="sendBtn">Надіслати</button>
-    <p class="note">Або одразу в Telegram: <a href="https://t.me/Ihor_0O">@Ihor_0O</a></p>
+    <button type="submit" id="sendBtn">Send</button>
+    <p class="note">Or straight to Telegram: <a href="https://t.me/Ihor_0O">@Ihor_0O</a></p>
   </form>
 
   <div class="result" id="okBox">
-    <h2>Дякую, заявка в мене ✅</h2>
-    <p>Відповім протягом дня. Хочете швидше: <a href="https://t.me/Ihor_0O">Telegram @Ihor_0O</a></p>
+    <h2>Thanks, I got your request ✅</h2>
+    <p>I'll reply within a day. Want it faster: <a href="https://t.me/Ihor_0O">Telegram @Ihor_0O</a></p>
   </div>
 
   <div class="result" id="errBox">
-    <h2>Не надіслалось</h2>
-    <p>Щось пішло не так. Напишіть мені напряму: <a href="https://t.me/Ihor_0O">Telegram @Ihor_0O</a> або <a href="mailto:hamulakigor7@gmail.com">hamulakigor7@gmail.com</a></p>
+    <h2>It didn't send</h2>
+    <p>Something went wrong. Write to me directly: <a href="https://t.me/Ihor_0O">Telegram @Ihor_0O</a> or <a href="mailto:hamulakigor7@gmail.com">hamulakigor7@gmail.com</a></p>
   </div>
 </div>
 
@@ -129,9 +129,9 @@
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     btn.disabled = true;
-    btn.textContent = "Надсилаю...";
+    btn.textContent = "Sending...";
     const data = Object.fromEntries(new FormData(form).entries());
-    data.source = "site-form";
+    data.source = "site-form-en";
     data.page = location.href;
     try {
       const res = await fetch("https://n8n.khamuliak-automation.uk/webhook/lead-form", {

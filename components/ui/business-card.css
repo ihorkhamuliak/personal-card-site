@@ -80,6 +80,38 @@
     #02120d 100%
   );
 }
+/* --- Language toggle --- */
+.card-scope .lang-toggle {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  background: rgba(2, 18, 13, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 3px;
+  backdrop-filter: blur(6px);
+}
+.card-scope .lang-toggle button {
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.card-scope .lang-toggle button.on {
+  background: #fff;
+  color: #05301f;
+}
+
 /* --- Body (solid) --- */
 .card-scope .card__body {
   position: relative;
@@ -249,17 +281,30 @@
   outline-offset: 0;
 }
 
-/* --- Phones --- */
+/* --- Phones: компактніше — нижчий банер, стиснуті відступи --- */
 @media (max-width: 420px) {
   .card-scope {
     --card-w: 100%;
-    --avatar: 78px;
+    --avatar: 74px;
+    --banner-h: 118px;
   }
   .card-scope .card {
     max-width: 360px;
   }
+  .card-scope .card__body {
+    padding: 0 18px 20px;
+  }
   .card-scope .name {
     font-size: 20px;
+  }
+  .card-scope .bio {
+    margin-top: 10px;
+  }
+  .card-scope .ventures {
+    margin-top: 14px;
+  }
+  .card-scope .socials {
+    margin-top: 16px;
   }
 }
 

@@ -49,6 +49,13 @@ export type SiteConfig = {
   };
   /** Companies or projects listed on the card (optional, can be empty) */
   ventures: Venture[];
+  /** English texts for the card language toggle */
+  translations: {
+    en: {
+      bio: string;
+      ventures: Venture[];
+    };
+  };
   /** Paths to assets in /public – swap the files, keep the paths */
   avatar: string;
   ogImage: string;
@@ -86,6 +93,23 @@ export const siteConfig: SiteConfig = {
       description: "Опишіть задачу, відповім протягом дня",
     },
   ],
+  translations: {
+    en: {
+      bio: "I build systems that work while you sleep: AI bots, auto-reports, auto-posting.",
+      ventures: [
+        {
+          name: "Portfolio",
+          url: "https://khamuliak-automation.uk/en/portfolio",
+          description: "Case studies: AI bots, auto-reports, auto-posting",
+        },
+        {
+          name: "Leave a request",
+          url: "https://khamuliak-automation.uk/en/start",
+          description: "Describe your task, I reply within a day",
+        },
+      ],
+    },
+  },
   avatar: "/avatar.png",
   ogImage: "/og-image.png",
   favicon: "/favicon.png",

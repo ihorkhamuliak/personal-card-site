@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
         source: "/start",
         destination: "/start/index.html",
       },
+      {
+        source: "/en/portfolio",
+        destination: "/en/portfolio/index.html",
+      },
+      {
+        source: "/en/start",
+        destination: "/en/start/index.html",
+      },
     ];
   },
   // Canonical domain: funnel the auto-assigned *.vercel.app host to the custom
