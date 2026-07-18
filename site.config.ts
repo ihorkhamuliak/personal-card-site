@@ -62,7 +62,7 @@ export const siteConfig: SiteConfig = {
   jobTitle: "Автоматизація і AI для бізнесу",
   bio: "Роблю системи, які працюють, поки ти спиш: AI-боти, автозвіти, автопостинг.",
   description:
-    "Ihor Khamuliak is an automation developer and IT student based in Poznań, Poland. He builds AI assistants, Telegram bots and business automations with n8n, Python and the Claude API for small businesses in Ukraine and Poland. Coding since age 17: Java, C++, now Python.",
+    "Ihor Khamuliak is an automation developer and IT student based in Poznań, Poland. He builds AI assistants, Telegram bots and business automations with n8n, Python and the Claude API for businesses in Ukraine and Poland. Coding since age 17: Java, C++, now Python.",
   siteUrl: "https://khamuliak-automation.uk",
   vercelHost: "personal-card-site-one.vercel.app",
   email: "hamulakigor7@gmail.com",
@@ -79,6 +79,11 @@ export const siteConfig: SiteConfig = {
       name: "Портфоліо",
       url: "https://khamuliak-automation.uk/portfolio",
       description: "Кейси: AI-боти, автозвіти, автопостинг",
+    },
+    {
+      name: "Залишити заявку",
+      url: "https://khamuliak-automation.uk/start",
+      description: "Опиши задачу, відповім протягом дня",
     },
   ],
   avatar: "/avatar.png",

@@ -7,13 +7,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
-  // Static portfolio page lives in public/portfolio/index.html; serve it at
-  // the clean /portfolio URL.
+  // Static pages live in public/<name>/index.html; serve them at clean URLs.
   async rewrites() {
     return [
       {
         source: "/portfolio",
         destination: "/portfolio/index.html",
+      },
+      {
+        source: "/start",
+        destination: "/start/index.html",
       },
     ];
   },

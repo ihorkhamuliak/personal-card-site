@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Заявка | Ігор Хамуляк</title>
+<meta name="description" content="Розкажи, де в тебе рутина. Відповім протягом дня: що можна автоматизувати, скільки коштує і чи воно того варте.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png">
+<style>
+  :root {
+    --bg: #0a1210;
+    --bg-card: #101b15;
+    --text: #e7f2ec;
+    --text-dim: #93aca0;
+    --accent: #10b981;
+    --accent-soft: rgba(16, 185, 129, 0.12);
+    --border: #20392e;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 0 20px 60px; }
+  .topnav { padding: 22px 0 0; }
+  .topnav a { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+  .topnav a:hover { color: var(--accent); }
+
+  h1 { font-size: clamp(26px, 5vw, 34px); line-height: 1.2; margin: 40px 0 10px; }
+  h1 .accent { color: var(--accent); }
+  .lead { color: var(--text-dim); font-size: 15.5px; margin-bottom: 30px; }
+
+  form { display: flex; flex-direction: column; gap: 16px; }
+  label { font-size: 14px; font-weight: 600; }
+  label span { color: var(--text-dim); font-weight: 400; }
+  input, textarea {
+    width: 100%;
+    margin-top: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font: inherit;
+    font-size: 14.5px;
+    padding: 11px 14px;
+    transition: border-color 0.15s;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  textarea { min-height: 110px; resize: vertical; }
+  .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+
+  button {
+    margin-top: 6px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 22px;
+    cursor: pointer;
+    transition: filter 0.15s;
+  }
+  button:hover { filter: brightness(1.12); }
+  button:disabled { opacity: 0.6; cursor: default; }
+
+  .note { color: var(--text-dim); font-size: 13px; }
+  .note a { color: var(--accent); text-decoration: none; }
+
+  .result {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-top: 10px;
+  }
+  .result h2 { font-size: 18px; margin-bottom: 8px; }
+  .result p { color: var(--text-dim); font-size: 14.5px; }
+  .result a { color: var(--accent); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="topnav"><a href="/">← На головну</a></nav>
+
+  <h1>Розкажи, де в тебе <span class="accent">рутина</span></h1>
+  <p class="lead">Заповни форму, відповім протягом дня: що можна автоматизувати, скільки це коштує і чи воно взагалі того варте. Чесно.</p>
+
+  <form id="leadForm">
+    <label>Як тебе звати
+      <input type="text" name="name" required maxlength="80" autocomplete="name">
+    </label>
+    <label>Чим займається бізнес <span>(нішa, продукт, послуга)</span>
+      <input type="text" name="business" required maxlength="120">
+    </label>
+    <label>Що хочеш автоматизувати <span>(своїми словами, де болить)</span>
+      <textarea name="task" required maxlength="1500"></textarea>
+    </label>
+    <label>Як з тобою зв'язатись <span>(Telegram, телефон або пошта)</span>
+      <input type="text" name="contact" required maxlength="120">
+    </label>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+    <button type="submit" id="sendBtn">Надіслати</button>
+    <p class="note">Або одразу в Telegram: <a href="https://t.me/Ihor_0O">@Ihor_0O</a></p>
+  </form>
+
+  <div class="result" id="okBox">
+    <h2>Дякую, заявка в мене ✅</h2>
+    <p>Відповім протягом дня. Хочеш швидше: <a href="https://t.me/Ihor_0O">Telegram @Ihor_0O</a></p>
+  </div>
+
+  <div class="result" id="errBox">
+    <h2>Не надіслалось</h2>
+    <p>Щось пішло не так. Напиши мені напряму: <a href="https://t.me/Ihor_0O">Telegram @Ihor_0O</a> або <a href="mailto:hamulakigor7@gmail.com">hamulakigor7@gmail.com</a></p>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("leadForm");
+  const btn = document.getElementById("sendBtn");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = "Надсилаю...";
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.source = "site-form";
+    data.page = location.href;
+    try {
+      const res = await fetch("https://n8n.khamuliak-automation.uk/webhook/lead-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("bad status " + res.status);
+      form.style.display = "none";
+      document.getElementById("okBox").style.display = "block";
+    } catch (err) {
+      form.style.display = "none";
+      document.getElementById("errBox").style.display = "block";
+    }
+  });
+</script>
+
+</body>
+</html>

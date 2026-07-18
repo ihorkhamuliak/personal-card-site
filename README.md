@@ -1,6 +1,6 @@
 # khamuliak-automation.uk
 
-Personal card site of Ihor Khamuliak: AI automation for small businesses.
+Personal card site of Ihor Khamuliak: AI automation for businesses.
 
 - Next.js 16 + Tailwind 4, WebGL shader background (three.js)
 - Everything personal lives in `site.config.ts`
