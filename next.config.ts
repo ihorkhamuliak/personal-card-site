@@ -8,8 +8,19 @@ const nextConfig: NextConfig = {
     root: __dirname,
   },
   // Static pages live in public/<name>/index.html; serve them at clean URLs.
+  // The portfolio is the landing page: "/" serves it directly, and the
+  // business card moved to /card (app/card/page.tsx). Both rewrites below work
+  // because no filesystem route owns "/" or "/en" any more.
   async rewrites() {
     return [
+      {
+        source: "/",
+        destination: "/portfolio/index.html",
+      },
+      {
+        source: "/en",
+        destination: "/en/portfolio/index.html",
+      },
       {
         source: "/portfolio",
         destination: "/portfolio/index.html",

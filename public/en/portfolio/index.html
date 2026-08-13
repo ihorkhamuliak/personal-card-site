@@ -3,12 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case studies | Ihor Khamuliak</title>
+<title>Ihor Khamuliak — automation and AI for business</title>
 <meta name="description" content="Case studies: AI assistants, auto-reports, auto-posting. Real systems with real numbers.">
-<meta property="og:title" content="Case studies | Ihor Khamuliak">
+<link rel="canonical" href="https://khamuliak-automation.uk/en/portfolio">
+<meta property="og:title" content="Ihor Khamuliak — automation and AI for business">
 <meta property="og:description" content="AI bots, auto-reports, auto-posting. Real systems with real numbers.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://khamuliak-automation.uk/en/portfolio">
+<meta property="og:image" content="https://khamuliak-automation.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://khamuliak-automation.uk/og-image.png">
+<link rel="alternate" hreflang="uk" href="https://khamuliak-automation.uk/">
+<link rel="alternate" hreflang="en" href="https://khamuliak-automation.uk/en/portfolio">
 <link rel="icon" href="/favicon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ihor Khamuliak",
+  "jobTitle": "Automation and AI for business",
+  "description": "Ihor Khamuliak is an automation developer and IT student based in Poznań, Poland. He builds AI assistants, Telegram bots and business automations with n8n, Python and the Claude API for businesses in Ukraine and Poland.",
+  "url": "https://khamuliak-automation.uk",
+  "image": "https://khamuliak-automation.uk/avatar.png",
+  "nationality": { "@type": "Country", "name": "Ukraine" },
+  "sameAs": [
+    "https://www.instagram.com/igorhml_",
+    "https://www.linkedin.com/in/ihorkhamuliak/",
+    "https://t.me/Ihor_0O",
+    "https://github.com/ihorkhamuliak"
+  ]
+}
+</script>
 <style>
   :root {
     --bg: #0a1210;
@@ -70,6 +97,52 @@
   .btn-primary:hover { filter: brightness(1.12); }
   .btn-ghost { border: 1px solid var(--border); color: var(--text); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Avatar + name in the header (moved over from the business card) */
+  .idline { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .idline img {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: block;
+  }
+  .idline b { display: block; font-size: 15px; font-weight: 600; }
+  .idline span { color: var(--text-dim); font-size: 13.5px; }
+
+  /* Numbers strip */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 36px; }
+  @media (max-width: 640px) { .stats { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 14px;
+  }
+  .stat .v {
+    color: var(--accent);
+    font-size: clamp(21px, 4.4vw, 27px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .stat .k { color: var(--text-dim); font-size: 13px; margin-top: 6px; line-height: 1.35; }
+  .stats-note { color: var(--text-dim); font-size: 13.5px; margin-top: 14px; }
+  .stats-note b { color: var(--text); font-weight: 600; }
+
+  /* Open source */
+  .repo {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: 0.15s;
+  }
+  .repo:hover { background: var(--bg-card-hover); border-color: var(--accent); }
+  .repo h3 { font-size: 15.5px; color: var(--text); margin-bottom: 4px; }
+  .repo p { color: var(--text-dim); font-size: 13.5px; }
 
   h2 { font-size: 24px; margin-bottom: 6px; }
   .sub { color: var(--text-dim); margin-bottom: 24px; font-size: 15px; }
@@ -148,16 +221,42 @@
 
 <div class="wrap">
 
-  <nav class="topnav" style="display: flex; justify-content: space-between;"><a href="/?lang=en">← Home</a><a href="/portfolio">UA</a></nav>
+  <nav class="topnav" style="display: flex; justify-content: space-between;"><a href="/card?lang=en">Business card</a><a href="/">UA</a></nav>
 
   <section class="hero">
-    <span class="badge">Automation · AI · Telegram bots</span>
-    <h1>Ihor Khamuliak.<br>I take the routine off your <span class="accent">business</span></h1>
+    <div class="idline">
+      <img src="/avatar.png" alt="Ihor Khamuliak" width="56" height="56">
+      <div>
+        <b>Ihor Khamuliak</b>
+        <span>Automation and AI for business · Poznań</span>
+      </div>
+    </div>
+    <h1>I take the routine off your <span class="accent">business</span></h1>
     <p class="lead">I build systems that work instead of a human: a bot answers your clients, reports fill themselves in, content publishes on schedule. All running for real clients, around the clock.</p>
     <div class="btns">
       <a class="btn btn-primary" href="https://t.me/Ihor_0O">Message me on Telegram</a>
       <a class="btn btn-ghost" href="#cases">See the case studies</a>
     </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="v">209,000+</div>
+        <div class="k">subscribers on channels the system runs</div>
+      </div>
+      <div class="stat">
+        <div class="v">107</div>
+        <div class="k">posts a day, no human involved</div>
+      </div>
+      <div class="stat">
+        <div class="v">36</div>
+        <div class="k">report runs in a row, zero failures</div>
+      </div>
+      <div class="stat">
+        <div class="v">6 hrs/mo</div>
+        <div class="k">of manual copy-paste removed</div>
+      </div>
+    </div>
+    <p class="stats-note">Numbers from live client systems, not from a deck. <b>Those posts used to be written by hired copywriters.</b></p>
   </section>
 
   <section id="services">
@@ -193,7 +292,7 @@
 
     <div class="case">
       <h3>News Telegram channels on autopilot</h3>
-      <p>The system runs <span class="num">seven client channels</span> on its own: posts around the clock, keeps the pace and night mode, keeps ads out of the feed. The biggest one: over <span class="num">60,000 subscribers</span>. On a hot day: <span class="num">31 posts</span> with no human involved. The client just gets a daily report at <span class="num">21:00</span>.</p>
+      <p>The system runs <span class="num">seven client channels</span> on its own: posts around the clock, keeps the pace and night mode, keeps ads out of the feed. Together that is over <span class="num">209,000 subscribers</span> and <span class="num">107 posts a day</span>. The biggest channel: over <span class="num">60,000 subscribers</span>, and on a hot day it puts out up to <span class="num">31 posts</span>. Those posts used to be written by hired copywriters. Now the client just gets an evening report.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">n8n</span><span class="tag">Telegram API</span><span class="tag">Docker</span></div>
       <div class="shots">
         <a href="/portfolio/img/tg-feed-2.png" target="_blank"><img src="/portfolio/img/tg-feed-2.png" alt="Channel feed: posts go out on their own" loading="lazy"></a>
@@ -204,7 +303,7 @@
 
     <div class="case">
       <h3>AI assistant for a workshop studio</h3>
-      <p>A pottery and floristry studio in Poznań was getting the same questions every day. I built a bot: it answers questions about the studio and prices, books workshop spots into a <span class="num">Google Sheet</span> and sends visit reminders. A portfolio project, the template is open source.</p>
+      <p>A pottery and floristry studio in Poznań was getting the same questions every day. I built a bot: it answers questions about the studio and prices, books workshop spots into a <span class="num">Google Sheet</span> and sends visit reminders. <b>This one is a portfolio build, not a system running in the client's business.</b> The template is open source, you can read the code.</p>
       <div class="tags"><span class="tag">n8n</span><span class="tag">Claude API</span><span class="tag">Google Sheets</span></div>
       <p style="margin: 10px 0 0;"><a class="gh" href="https://github.com/ihorkhamuliak/tg-bot-szablon">→ template on GitHub</a></p>
       <div class="shots">
@@ -229,7 +328,7 @@
 
     <div class="case">
       <h3>My own LinkedIn on autopilot</h3>
-      <p>AI writes posts from my work notes, sends me a draft in Telegram for approval and publishes on schedule <span class="num">3 times a week</span>. I use the same thing I sell.</p>
+      <p>AI writes posts from my work notes, sends me a draft in Telegram for approval and publishes on schedule <span class="num">every day</span>. I use the same thing I sell.</p>
       <div class="tags"><span class="tag">n8n</span><span class="tag">Claude API</span><span class="tag">LinkedIn API</span></div>
       <div class="shots">
         <a href="/portfolio/img/li-draft.png" target="_blank"><img src="/portfolio/img/li-draft.png" alt="Post draft in Telegram with approval buttons" loading="lazy"></a>
@@ -245,6 +344,31 @@
       <div class="tags"><span class="tag">n8n</span><span class="tag">Telegram Bot API</span><span class="tag">Google Sheets</span></div>
       <p style="margin: 10px 0 0;"><a class="gh" href="/en/start">→ live form, try it</a></p>
     </div>
+  </section>
+
+  <section id="open">
+    <h2>Open source</h2>
+    <p class="sub">Templates and working systems you can take and look at from the inside</p>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/tg-bot-szablon">
+      <h3>tg-bot-szablon → Telegram booking bot</h3>
+      <p>A ready template: answers questions, books a slot into a Google Sheet, sends reminders. n8n + Claude API, with setup instructions.</p>
+    </a>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/meta-ads-to-sheets">
+      <h3>meta-ads-to-sheets → ad spend into a spreadsheet</h3>
+      <p>The same script that runs for a client. Python + Meta API + GitHub Actions, fires itself every morning.</p>
+    </a>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/tg-autopost/blob/main/ARCHITECTURE.md">
+      <h3>tg-autopost → architecture of the auto-posting system</h3>
+      <p>The pipeline, an honest note on where this approach breaks, and nine lessons that each cost a real production incident.</p>
+    </a>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/second-brain-template">
+      <h3>second-brain-template → a knowledge base for working with AI</h3>
+      <p>The structure I use myself every day: projects, decisions, review rituals. Built for Obsidian and Claude Code.</p>
+    </a>
   </section>
 
   <section id="how">

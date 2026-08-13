@@ -3,12 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Кейси | Ігор Хамуляк</title>
+<title>Ігор Хамуляк — автоматизація і AI для бізнесу</title>
 <meta name="description" content="Кейси: AI-асистенти, автозвіти, автопостинг. Системи, які працюють у клієнтів щодня.">
-<meta property="og:title" content="Кейси | Ігор Хамуляк">
+<link rel="canonical" href="https://khamuliak-automation.uk/">
+<meta property="og:title" content="Ігор Хамуляк — автоматизація і AI для бізнесу">
 <meta property="og:description" content="AI-боти, автозвіти, автопостинг. Реальні системи, які працюють у клієнтів щодня.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<meta property="og:url" content="https://khamuliak-automation.uk/">
+<meta property="og:image" content="https://khamuliak-automation.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://khamuliak-automation.uk/og-image.png">
+<link rel="alternate" hreflang="uk" href="https://khamuliak-automation.uk/">
+<link rel="alternate" hreflang="en" href="https://khamuliak-automation.uk/en/portfolio">
+<link rel="icon" href="/favicon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ігор Хамуляк",
+  "alternateName": ["Ihor Khamuliak"],
+  "jobTitle": "Автоматизація і AI для бізнесу",
+  "description": "Ihor Khamuliak is an automation developer and IT student based in Poznań, Poland. He builds AI assistants, Telegram bots and business automations with n8n, Python and the Claude API for businesses in Ukraine and Poland.",
+  "url": "https://khamuliak-automation.uk",
+  "image": "https://khamuliak-automation.uk/avatar.png",
+  "nationality": { "@type": "Country", "name": "Ukraine" },
+  "sameAs": [
+    "https://www.instagram.com/igorhml_",
+    "https://www.linkedin.com/in/ihorkhamuliak/",
+    "https://t.me/Ihor_0O",
+    "https://github.com/ihorkhamuliak"
+  ]
+}
+</script>
 <style>
   :root {
     --bg: #0a1210;
@@ -71,6 +99,52 @@
   .btn-primary:hover { filter: brightness(1.12); }
   .btn-ghost { border: 1px solid var(--border); color: var(--text); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Аватар + ім'я у шапці (переїхало з картки-візитки) */
+  .idline { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .idline img {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: block;
+  }
+  .idline b { display: block; font-size: 15px; font-weight: 600; }
+  .idline span { color: var(--text-dim); font-size: 13.5px; }
+
+  /* Смуга з цифрами */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 36px; }
+  @media (max-width: 640px) { .stats { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 14px;
+  }
+  .stat .v {
+    color: var(--accent);
+    font-size: clamp(21px, 4.4vw, 27px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .stat .k { color: var(--text-dim); font-size: 13px; margin-top: 6px; line-height: 1.35; }
+  .stats-note { color: var(--text-dim); font-size: 13.5px; margin-top: 14px; }
+  .stats-note b { color: var(--text); font-weight: 600; }
+
+  /* Відкриті шаблони */
+  .repo {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: 0.15s;
+  }
+  .repo:hover { background: var(--bg-card-hover); border-color: var(--accent); }
+  .repo h3 { font-size: 15.5px; color: var(--text); margin-bottom: 4px; }
+  .repo p { color: var(--text-dim); font-size: 13.5px; }
 
   h2 { font-size: 24px; margin-bottom: 6px; }
   .sub { color: var(--text-dim); margin-bottom: 24px; font-size: 15px; }
@@ -154,16 +228,42 @@
 
 <div class="wrap">
 
-  <nav class="topnav" style="display: flex; justify-content: space-between;"><a href="/">← На головну</a><a href="/en/portfolio">EN</a></nav>
+  <nav class="topnav" style="display: flex; justify-content: space-between;"><a href="/card">Візитка</a><a href="/en/portfolio">EN</a></nav>
 
   <section class="hero">
-    <span class="badge">Автоматизація · AI · Telegram-боти</span>
-    <h1>Ігор Хамуляк.<br>Забираю рутину в <span class="accent">бізнесу</span></h1>
+    <div class="idline">
+      <img src="/avatar.png" alt="Ігор Хамуляк" width="56" height="56">
+      <div>
+        <b>Ігор Хамуляк</b>
+        <span>Автоматизація і AI для бізнесу · Познань</span>
+      </div>
+    </div>
+    <h1>Забираю рутину в <span class="accent">бізнесу</span></h1>
     <p class="lead">Роблю системи, які працюють замість людини: бот відповідає клієнтам, звіти заповнюються самі, контент публікується за розкладом. Все на реальних клієнтах, 24/7.</p>
     <div class="btns">
       <a class="btn btn-primary" href="https://t.me/Ihor_0O">Написати в Telegram</a>
       <a class="btn btn-ghost" href="#cases">Подивитись кейси</a>
     </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="v">209 000+</div>
+        <div class="k">підписників у каналах, які веде система</div>
+      </div>
+      <div class="stat">
+        <div class="v">107</div>
+        <div class="k">постів на добу, жодної людини</div>
+      </div>
+      <div class="stat">
+        <div class="v">36</div>
+        <div class="k">запусків звіту поспіль без збою</div>
+      </div>
+      <div class="stat">
+        <div class="v">6 год/міс</div>
+        <div class="k">ручного copy-paste прибрано</div>
+      </div>
+    </div>
+    <p class="stats-note">Цифри з живих клієнтських систем, не з презентації. <b>Раніше ці пости писали наймані копірайтери.</b></p>
   </section>
 
   <section id="services">
@@ -199,7 +299,7 @@
 
     <div class="case">
       <h3>Новинні Telegram-канали на автопілоті</h3>
-      <p><span class="num">Сім каналів</span> одного клієнта система веде сама: публікує пости цілодобово, тримає темп і нічний режим, не пускає рекламу в стрічку. Найбільший з них: понад <span class="num">60 000 підписників</span>. За гарячий день: <span class="num">31 пост</span> без участі людини. Клієнт лише отримує звіт о <span class="num">21:00</span>.</p>
+      <p><span class="num">Сім каналів</span> одного клієнта система веде сама: публікує пости цілодобово, тримає темп і нічний режим, не пускає рекламу в стрічку. Разом це понад <span class="num">209 000 підписників</span> і <span class="num">107 постів на добу</span>. Найбільший канал: понад <span class="num">60 000 підписників</span>, за гарячий день у ньому виходить до <span class="num">31 поста</span>. Раніше ці пости писали наймані копірайтери. Тепер клієнт лише отримує вечірній звіт.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">n8n</span><span class="tag">Telegram API</span><span class="tag">Docker</span></div>
       <div class="shots">
         <a href="/portfolio/img/tg-feed-2.png" target="_blank"><img src="/portfolio/img/tg-feed-2.png" alt="Стрічка каналу: пости виходять самі" loading="lazy"></a>
@@ -210,7 +310,7 @@
 
     <div class="case">
       <h3>AI-асистент для студії майстер-класів</h3>
-      <p>Студія кераміки і флористики в Познані отримувала однакові питання щодня. Зробив бота: відповідає на питання про студію і прайс, записує на майстер-класи в <span class="num">Google Таблицю</span> і нагадує про візит. Портфоліо-проєкт, шаблон відкритий: можна подивитись код.</p>
+      <p>Студія кераміки і флористики в Познані отримувала однакові питання щодня. Зробив бота: відповідає на питання про студію і прайс, записує на майстер-класи в <span class="num">Google Таблицю</span> і нагадує про візит. <b>Це портфоліо-проєкт, а не система, що працює в бізнесі клієнта.</b> Шаблон відкритий, код можна подивитись.</p>
       <div class="tags"><span class="tag">n8n</span><span class="tag">Claude API</span><span class="tag">Google Sheets</span></div>
       <p style="margin: 10px 0 0;"><a class="gh" href="https://github.com/ihorkhamuliak/tg-bot-szablon">→ шаблон на GitHub</a></p>
       <div class="shots">
@@ -235,7 +335,7 @@
 
     <div class="case">
       <h3>Власний LinkedIn на автопілоті</h3>
-      <p>AI пише пости з моїх робочих нотаток, надсилає чернетку в Telegram на підтвердження і публікує за розкладом <span class="num">3 рази на тиждень</span>. Я користуюсь тим самим, що продаю.</p>
+      <p>AI пише пости з моїх робочих нотаток, надсилає чернетку в Telegram на підтвердження і публікує за розкладом <span class="num">щодня</span>. Я користуюсь тим самим, що продаю.</p>
       <div class="tags"><span class="tag">n8n</span><span class="tag">Claude API</span><span class="tag">LinkedIn API</span></div>
       <div class="shots">
         <a href="/portfolio/img/li-draft.png" target="_blank"><img src="/portfolio/img/li-draft.png" alt="Чернетка поста в Telegram з кнопками підтвердження" loading="lazy"></a>
@@ -251,6 +351,31 @@
       <div class="tags"><span class="tag">n8n</span><span class="tag">Telegram Bot API</span><span class="tag">Google Sheets</span></div>
       <p style="margin: 10px 0 0;"><a class="gh" href="/start">→ жива форма, спробуйте</a></p>
     </div>
+  </section>
+
+  <section id="open">
+    <h2>Відкритий код</h2>
+    <p class="sub">Шаблони і робочі системи, які можна взяти і подивитись зсередини</p>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/tg-bot-szablon">
+      <h3>tg-bot-szablon → Telegram-бот для запису клієнтів</h3>
+      <p>Готовий шаблон: відповідає на питання, записує на послугу в Google Таблицю, нагадує про візит. n8n + Claude API. З інструкцією запуску.</p>
+    </a>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/meta-ads-to-sheets">
+      <h3>meta-ads-to-sheets → витрати з реклами в таблицю</h3>
+      <p>Той самий скрипт, що працює в клієнта. Python + Meta API + GitHub Actions, запускається сам щоранку.</p>
+    </a>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/tg-autopost/blob/main/ARCHITECTURE.md">
+      <h3>tg-autopost → архітектура системи автопостингу</h3>
+      <p>Схема пайплайну, чесна межа підходу і девʼять уроків, кожен з яких коштував реального інциденту в проді.</p>
+    </a>
+
+    <a class="repo" href="https://github.com/ihorkhamuliak/second-brain-template">
+      <h3>second-brain-template → база знань для роботи з AI</h3>
+      <p>Структура, яку я сам використовую щодня: проєкти, рішення, ритуали перегляду. Під Obsidian і Claude Code.</p>
+    </a>
   </section>
 
   <section id="how">
