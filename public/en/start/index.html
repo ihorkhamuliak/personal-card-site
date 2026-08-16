@@ -85,6 +85,9 @@
   .result p { color: var(--text-dim); font-size: 14.5px; }
   .result a { color: var(--accent); text-decoration: none; font-weight: 600; }
 </style>
+<!-- Vercel Web Analytics. The static pages live outside the Next.js router,
+     so the <Analytics /> component in app/layout.tsx would never reach them. -->
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 

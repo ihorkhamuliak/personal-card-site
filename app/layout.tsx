@@ -107,6 +107,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: personJsonLd }}
         />
+        {/* Vercel Web Analytics. This layout only covers /card; the portfolio
+            and the lead forms are static HTML in public/ and carry the same
+            script tag of their own. */}
+        <script defer src="/_vercel/insights/script.js" />
         {children}
       </body>
     </html>
