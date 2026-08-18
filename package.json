@@ -28,8 +28,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.184.1",
+    "css-select": "^7.0.0",
+    "css-tree": "^3.2.1",
+    "domutils": "^4.0.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "htmlparser2": "^12.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

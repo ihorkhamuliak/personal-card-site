@@ -43,8 +43,8 @@
     --bg-card-hover: #152820;
     --text: #e7f2ec;
     --text-dim: #93aca0;
-    --accent: #10b981;
-    --accent-soft: rgba(16, 185, 129, 0.12);
+    --accent: #38a37c;
+    --accent-soft: rgba(56, 163, 124, 0.14);
     --border: #20392e;
     --radius: 14px;
   }
@@ -58,6 +58,8 @@
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  /* Readable measure: body copy ran 87-101 chars per line at the 720px wrap. */
+  .sub, .stats-note, .case p, .step p, .repo p { max-width: 68ch; }
   section { padding: 48px 0; }
 
   .topnav { padding: 22px 0 0; }
@@ -93,7 +95,8 @@
     text-decoration: none;
     transition: 0.15s;
   }
-  .btn-primary { background: var(--accent); color: #fff; }
+  /* Dark ink on the accent: white gave 2.5:1, below the 4.5:1 WCAG AA floor. */
+  .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-primary:hover { filter: brightness(1.12); }
   .btn-ghost { border: 1px solid var(--border); color: var(--text); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
@@ -243,15 +246,15 @@
 
     <div class="stats">
       <div class="stat">
-        <div class="v">209,000+</div>
+        <div class="v">264,000+</div>
         <div class="k">subscribers on channels the system runs</div>
       </div>
       <div class="stat">
-        <div class="v">130</div>
+        <div class="v">~170</div>
         <div class="k">posts a day, no human involved</div>
       </div>
       <div class="stat">
-        <div class="v">36</div>
+        <div class="v">70+</div>
         <div class="k">report runs in a row, zero failures</div>
       </div>
       <div class="stat">
@@ -295,7 +298,7 @@
 
     <div class="case">
       <h3>News Telegram channels on autopilot</h3>
-      <p>The system runs <span class="num">seven client channels</span> on its own: posts around the clock, keeps the pace and night mode, keeps ads out of the feed. Together that is over <span class="num">209,000 subscribers</span> and <span class="num">130 posts a day</span>. The biggest channel: over <span class="num">60,000 subscribers</span>, and on a hot day it puts out up to <span class="num">31 posts</span>. Those posts used to be written by hired copywriters. Now the client just gets an evening report.</p>
+      <p>The system runs <span class="num">nine client channels</span> on its own: posts around the clock, keeps the pace and night mode, keeps ads out of the feed. Together that is over <span class="num">264,000 subscribers</span> and <span class="num">around 170 posts a day</span>. The biggest channel: over <span class="num">60,000 subscribers</span>, and on a hot day it puts out up to <span class="num">31 posts</span>. Those posts used to be written by hired copywriters. Now the client just gets an evening report.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">n8n</span><span class="tag">Telegram API</span><span class="tag">Docker</span></div>
       <div class="shots">
         <a href="/portfolio/img/tg-feed-2.png" target="_blank"><img src="/portfolio/img/tg-feed-2.png" alt="Channel feed: posts go out on their own" loading="lazy"></a>
@@ -320,12 +323,12 @@
 
     <div class="case">
       <h3>Meta Ads reports: 15 minutes a day → 0</h3>
-      <p>The client was manually copying spend from Ads Manager into Google Sheets: over <span class="num">6 hours a month</span> of copy-paste. Now a script does it every morning, no human involved. <span class="num">36 runs</span> in a row without a single failure.</p>
+      <p>The client was manually copying spend from Ads Manager into Google Sheets: over <span class="num">6 hours a month</span> of copy-paste. Now a script does it every morning, no human involved. <span class="num">Over 70 runs</span>, every day since June.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Meta API</span><span class="tag">GitHub Actions</span></div>
       <p style="margin: 10px 0 0;"><a class="gh" href="https://github.com/ihorkhamuliak/meta-ads-to-sheets">→ code on GitHub</a></p>
       <div class="shots">
         <a href="/portfolio/img/meta-sheet.png" target="_blank"><img src="/portfolio/img/meta-sheet.png" alt="Client spreadsheet: spend fills itself in" loading="lazy"></a>
-        <a href="/portfolio/img/meta-actions.png" target="_blank"><img src="/portfolio/img/meta-actions.png" alt="36 automatic runs in a row, all green" loading="lazy"></a>
+        <a href="/portfolio/img/meta-actions.png" target="_blank"><img src="/portfolio/img/meta-actions.png" alt="Automatic run log: the daily report goes out on its own" loading="lazy"></a>
       </div>
     </div>
 

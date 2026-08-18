@@ -47,8 +47,8 @@
     --bg-card-hover: #152820;
     --text: #e7f2ec;
     --text-dim: #93aca0;
-    --accent: #10b981;
-    --accent-soft: rgba(16, 185, 129, 0.12);
+    --accent: #38a37c;
+    --accent-soft: rgba(56, 163, 124, 0.14);
     --border: #20392e;
     --radius: 14px;
   }
@@ -63,6 +63,8 @@
   }
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
   section { padding: 48px 0; }
+  /* Readable measure: body copy ran 87-101 chars per line at the 720px wrap. */
+  .sub, .stats-note, .case p, .step p, .repo p { max-width: 68ch; }
 
   .topnav { padding: 22px 0 0; }
   .topnav a { color: var(--text-dim); text-decoration: none; font-size: 14px; }
@@ -98,7 +100,8 @@
     text-decoration: none;
     transition: 0.15s;
   }
-  .btn-primary { background: var(--accent); color: #fff; }
+  /* Dark ink on the accent: white gave 2.5:1, below the 4.5:1 WCAG AA floor. */
+  .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-primary:hover { filter: brightness(1.12); }
   .btn-ghost { border: 1px solid var(--border); color: var(--text); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
@@ -253,16 +256,16 @@
 
     <div class="stats">
       <div class="stat">
-        <div class="v">209 000+</div>
+        <div class="v">264 000+</div>
         <div class="k">підписників у каналах, які веде система</div>
       </div>
       <div class="stat">
-        <div class="v">130</div>
+        <div class="v">~170</div>
         <div class="k">постів на добу, жодної людини</div>
       </div>
       <div class="stat">
-        <div class="v">36</div>
-        <div class="k">запусків звіту поспіль без збою</div>
+        <div class="v">70+</div>
+        <div class="k">автоматичних запусків звіту, щодня з червня</div>
       </div>
       <div class="stat">
         <div class="v">6 год/міс</div>
@@ -305,7 +308,7 @@
 
     <div class="case">
       <h3>Новинні Telegram-канали на автопілоті</h3>
-      <p><span class="num">Сім каналів</span> одного клієнта система веде сама: публікує пости цілодобово, тримає темп і нічний режим, не пускає рекламу в стрічку. Разом це понад <span class="num">209 000 підписників</span> і <span class="num">130 постів на добу</span>. Найбільший канал: понад <span class="num">60 000 підписників</span>, за гарячий день у ньому виходить до <span class="num">31 поста</span>. Раніше ці пости писали наймані копірайтери. Тепер клієнт лише отримує вечірній звіт.</p>
+      <p><span class="num">Дев'ять каналів</span> одного клієнта система веде сама: публікує пости цілодобово, тримає темп і нічний режим, не пускає рекламу в стрічку. Разом це понад <span class="num">264 000 підписників</span> і <span class="num">близько 170 постів на добу</span>. Найбільший канал: понад <span class="num">60 000 підписників</span>, за гарячий день у ньому виходить до <span class="num">31 поста</span>. Раніше ці пости писали наймані копірайтери. Тепер клієнт лише отримує вечірній звіт.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">n8n</span><span class="tag">Telegram API</span><span class="tag">Docker</span></div>
       <div class="shots">
         <a href="/portfolio/img/tg-feed-2.png" target="_blank"><img src="/portfolio/img/tg-feed-2.png" alt="Стрічка каналу: пости виходять самі" loading="lazy"></a>
@@ -330,12 +333,12 @@
 
     <div class="case">
       <h3>Звіти Meta Ads: 15 хвилин щодня → 0</h3>
-      <p>Клієнт вручну переносив витрати з Ads Manager у Google Таблицю: понад <span class="num">6 годин на місяць</span> на copy-paste. Тепер скрипт робить це сам щоранку, без людини. <span class="num">36 запусків</span> поспіль без жодного збою.</p>
+      <p>Клієнт вручну переносив витрати з Ads Manager у Google Таблицю: понад <span class="num">6 годин на місяць</span> на copy-paste. Тепер скрипт робить це сам щоранку, без людини. <span class="num">Понад 70 запусків</span>, щодня з червня.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Meta API</span><span class="tag">GitHub Actions</span></div>
       <p style="margin: 10px 0 0;"><a class="gh" href="https://github.com/ihorkhamuliak/meta-ads-to-sheets">→ код на GitHub</a></p>
       <div class="shots">
         <a href="/portfolio/img/meta-sheet.png" target="_blank"><img src="/portfolio/img/meta-sheet.png" alt="Таблиця клієнта: витрати заповнюються самі" loading="lazy"></a>
-        <a href="/portfolio/img/meta-actions.png" target="_blank"><img src="/portfolio/img/meta-actions.png" alt="36 автоматичних запусків поспіль, усі успішні" loading="lazy"></a>
+        <a href="/portfolio/img/meta-actions.png" target="_blank"><img src="/portfolio/img/meta-actions.png" alt="Журнал автоматичних запусків: щоденний звіт відпрацьовує сам" loading="lazy"></a>
       </div>
     </div>
 
