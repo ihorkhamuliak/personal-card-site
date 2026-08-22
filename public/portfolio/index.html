@@ -210,8 +210,10 @@
     border-left: 3px solid var(--accent);
     border-radius: 10px;
   }
+  /* 220px — не естетика, а поріг: вужче за ~200px Chrome і Edge ховають повну
+     панель плеєра, і кнопки «на весь екран» просто немає. */
   .quote video {
-    width: 148px; flex-shrink: 0; display: block;
+    width: 220px; flex-shrink: 0; display: block;
     border-radius: 10px; border: 1px solid var(--border); background: #000;
   }
   .quote blockquote { font-size: 14.5px; color: var(--text); }
@@ -369,7 +371,9 @@
       <div class="quote">
         <video controls preload="none" playsinline poster="/portfolio/video/vasyliev-poster.jpg">
           <source src="/portfolio/video/vasyliev-meta-ads.mp4" type="video/mp4">
-          <track kind="subtitles" src="/portfolio/video/vasyliev-uk.vtt" srclang="uk" label="Українська" default>
+          <!-- Жодна доріжка не default: відео вже українською, а плашка субтитрів
+               залазить на обличчя. Хто дивиться без звуку — вмикає їх у плеєрі. -->
+          <track kind="subtitles" src="/portfolio/video/vasyliev-uk.vtt" srclang="uk" label="Українська">
           <track kind="subtitles" src="/portfolio/video/vasyliev-en.vtt" srclang="en" label="English">
         </video>
         <blockquote>

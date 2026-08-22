@@ -202,8 +202,10 @@
     border-left: 3px solid var(--accent);
     border-radius: 10px;
   }
+  /* 220px is a threshold, not a taste call: below ~200px Chrome and Edge drop
+     the full control bar, so there is no fullscreen button at all. */
   .quote video {
-    width: 148px; flex-shrink: 0; display: block;
+    width: 220px; flex-shrink: 0; display: block;
     border-radius: 10px; border: 1px solid var(--border); background: #000;
   }
   .quote blockquote { font-size: 14.5px; color: var(--text); }
