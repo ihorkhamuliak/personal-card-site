@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 питань до автоматизації | Ігор Хамуляк</title>
+<meta name="description" content="П'ять питань про процес, на які варто відповісти до того, як щось автоматизувати. Коротко, на одну сторінку.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png">
+<style>
+  :root {
+    --bg: #0a1210;
+    --bg-card: #101b15;
+    --text: #e7f2ec;
+    --text-dim: #93aca0;
+    --accent: #10b981;
+    --accent-soft: rgba(16, 185, 129, 0.12);
+    --border: #20392e;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 620px; margin: 0 auto; padding: 0 20px 70px; }
+  .topnav { padding: 22px 0 0; }
+  .topnav a { color: var(--text-dim); text-decoration: none; font-size: 14px; }
+  .topnav a:hover { color: var(--accent); }
+
+  h1 { font-size: clamp(25px, 5vw, 33px); line-height: 1.25; margin: 40px 0 14px; }
+  h1 .accent { color: var(--accent); }
+  .lead { color: var(--text-dim); font-size: 15.5px; margin-bottom: 34px; }
+
+  .q {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+  .q .num {
+    display: block;
+    color: var(--accent);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .q h2 { font-size: 18px; line-height: 1.35; margin-bottom: 9px; }
+  .q p { color: var(--text-dim); font-size: 14.5px; }
+  .q p + p { margin-top: 8px; }
+  .q b { color: var(--text); font-weight: 600; }
+
+  .close {
+    margin-top: 30px;
+    padding: 22px;
+    background: var(--accent-soft);
+    border-radius: var(--radius);
+    font-size: 15.5px;
+  }
+
+  .after { margin-top: 26px; color: var(--text-dim); font-size: 14.5px; }
+  .after a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .after a:hover { text-decoration: underline; }
+
+  .sign { margin-top: 34px; color: var(--text-dim); font-size: 13.5px; }
+</style>
+<!-- Vercel Web Analytics. The static pages live outside the Next.js router,
+     so the <Analytics /> component in app/layout.tsx would never reach them. -->
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="topnav"><a href="/">← На головну</a></nav>
+
+  <h1>5 питань, які варто поставити собі <span class="accent">до</span> автоматизації</h1>
+  <p class="lead">Автоматизація прискорює процес, який уже є. Якщо процес плутаний, вона просто прискорить плутанину. Ці п'ять питань про сам процес, а не про інструменти, і чесна відповідь на них показує, з чого починати.</p>
+
+  <div class="q">
+    <span class="num">Питання 1</span>
+    <h2>Що ви робите руками щодня?</h2>
+    <p>Питання не «що автоматизувати», а «що ми і так робимо».</p>
+    <p><b>«Ведемо таблицю»</b> це слабка відповідь. <b>«Переносимо заявки в таблицю, щоб менеджер бачив, кому ще не передзвонили»</b> вже дає зрозуміти, навіщо цей крок узагалі існує.</p>
+  </div>
+
+  <div class="q">
+    <span class="num">Питання 2</span>
+    <h2>Скільки разів на тиждень це повторюється і скільки хвилин займає один раз?</h2>
+    <p>Дві цифри вирішують усе. П'ять хвилин двічі на тиждень дратує, але не варта окремої системи. П'ять хвилин двадцять разів на день це вже півтори години щодня.</p>
+    <p>Порахуйте обидві цифри до того, як питати про ціну.</p>
+  </div>
+
+  <div class="q">
+    <span class="num">Питання 3</span>
+    <h2>Де процес зупиняється і чекає людину?</h2>
+    <p>Час з'їдає не сама дія, а пауза перед нею. Заявка лежить, поки хтось її помітить, і цю паузу не видно в описі процесу, тільки в питанні <b>«коли ми про це дізнаємось»</b>.</p>
+  </div>
+
+  <div class="q">
+    <span class="num">Питання 4</span>
+    <h2>Що станеться, якщо система помилиться?</h2>
+    <p>Головне тут друга частина: чи ви це взагалі помітите. Помилка, видна одразу, коштує дешево. Помилка, про яку дізнаєтесь через місяць від клієнта, з'їдає всю економію разом.</p>
+    <p>Немає способу перевірити крок, автоматика на ньому зачекає.</p>
+  </div>
+
+  <div class="q">
+    <span class="num">Питання 5</span>
+    <h2>Як ви зрозумієте, що спрацювало?</h2>
+    <p>Одна цифра до запуску: години на тиждень, відсоток втрачених заявок, час до першої відповіді клієнту. Без неї через місяць лишиться тільки відчуття «начебто легше», а на відчуття не спертись.</p>
+  </div>
+
+  <div class="close">
+    Зупинились уже на першому питанні? Це і є відповідь. Спершу процес, потім система.
+  </div>
+
+  <p class="after">Застрягли на якомусь із п'яти питань і не виходить сформулювати відповідь, <a href="/start">напишіть мені</a>, розберемо разом.</p>
+
+  <p class="sign">Ігор Хамуляк, автоматизація для бізнесу</p>
+</div>
+
+</body>
+</html>

@@ -30,6 +30,10 @@ const nextConfig: NextConfig = {
         destination: "/start/index.html",
       },
       {
+        source: "/p/proces",
+        destination: "/p/proces/index.html",
+      },
+      {
         source: "/en/portfolio",
         destination: "/en/portfolio/index.html",
       },
